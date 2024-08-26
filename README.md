@@ -1,1 +1,1 @@
-# CSIT121
+# For labs and projects
