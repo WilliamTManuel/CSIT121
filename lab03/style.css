@@ -1,0 +1,28 @@
+body {
+    background-color: lightblue;
+    color: blue;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+h1 {
+    color: darkblue;
+    font-size: xx-large;
+}
+h2, h3 {
+    font-weight: 1000;
+}
+main p {
+    background-color: white;
+    color: blue;
+}
+a {
+    color: blue;
+    font-weight: bold;
+}
+.author {
+    background-color: darkblue;
+    color: white;
+}
+#published {
+    background-color: lightskyblue;
+    color: white;
+}
