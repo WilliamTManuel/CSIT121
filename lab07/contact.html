@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Contact Us</h1>
+        <nav>
+            <ul>
+                <li><a href="tierlist.html">Tier List</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Contact & Feedback Form</h2>
+        <form action="" method="post" aria-label="Contact form to gather your feedback and preferences">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="comment">Comment:</label><br>
+            <textarea id="comment" name="comment" rows="4" required></textarea><br><br>
+            
+            <fieldset>
+                <legend>Which console do you prefer?</legend>
+                <label>
+                    <input type="radio" name="preferredConsole" value="PlayStation"> PlayStation
+                </label>
+                <label>
+                    <input type="radio" name="preferredConsole" value="Xbox"> Xbox
+                </label>
+                <label>
+                    <input type="radio" name="preferredConsole" value="Nintendo"> Nintendo
+                </label>
+                <label>
+                    <input type="radio" name="preferredConsole" value="None"> None
+                </label>
+            </fieldset><br>
+
+            <fieldset>
+                <legend>Which tier do you think has the best consoles?</legend>
+                
+                <label>
+                    <input type="radio" name="bestTier" value="S"> S
+                </label>
+                <label>
+                    <input type="radio" name="bestTier" value="A"> A
+                </label>
+                <label>
+                    <input type="radio" name="bestTier" value="B"> B
+                </label>
+                <label>
+                    <input type="radio" name="bestTier" value="C"> C
+                </label>
+                <label>
+                    <input type="radio" name="bestTier" value="F"> F
+                </label>
+            </fieldset><br>
+
+            <fieldset>
+                <legend>Which console do you believe deserves a higher tier?</legend>
+                
+                <label>
+                    <input type="radio" name="higherTier" value="PlayStation"> PlayStation
+                </label>
+                <label>
+                    <input type="radio" name="higherTier" value="Xbox"> Xbox
+                </label>
+                <label>
+                    <input type="radio" name="higherTier" value="Nintendo"> Nintendo
+                </label>
+                <label>
+                    <input type="radio" name="higherTier" value="None"> None
+                </label>
+            </fieldset><br><br>
+
+            <label for="rating">Rate This Tier List! :</label>
+            <select id="rating" name="rating">
+                <option value="1">S</option>
+                <option value="2">A</option>
+                <option value="3">B</option>
+                <option value="4">C</option>
+                <option value="5">F</option>
+            </select><br><br>
+
+            <label>
+                <input type="checkbox" name="recommend" value="yes"> Would you recommend this tier list to a friend?
+            </label><br><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </main><br>
+
+    <footer>
+        <p style="font-size: 20px;"><b>Developer Contact Information</b></p>
+        <p>William Manuel</p>
+        <p><a style="color: red;" href="mailto:ma1168204@email.ccbcmd.edu">ma1168204@email.ccbcmd.edu</a></p>
+    </footer>
+</body>
+</html>
