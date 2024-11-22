@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>How is Geolocation Used?</title>
+</head>
+
+<body>
+    <header>
+        <h1>Geolocation</h1>
+        <nav>
+            <ul>
+                <li><a href="what-is-it.html">What is it?</a></li>
+                <li><a href="why-its-important.html">Why is it Important?</a></li>
+                <li><a href="how-its-used.html">How is it Used?</a></li>
+                <li><a href="sources.html">Sources</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Uses and Examples</h2>
+            <h3>Current Location</h3>
+            <p>
+                Geolocation is widely used in a handful of websites and applications.
+                One way geolocation is used is with the <b>getCurrentPosition</b> method, which finds the user's location at a specific moment. 
+                This is great for apps and websites that show maps, like a weather app that displays conditions in your area, or an app that shows nearby attractions. 
+                While it's simple, it is effective for when only your current position is needed. 
+            </p>
+            <p>Here’s a basic example of this method, showing how to use the Geolocation API to get a user’s latitude and longitude for their one-shot location (this simply displays it at the end for demonstrative purposes):</p>
+            <div class="example">
+                <code><br>
+                    navigator.geolocation.getCurrentPosition(function (position) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;const latitude = position.coords.latitude;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;const longitude = position.coords.longitude;<br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;console.log("Latitude: " + latitude + ", Longitude: " + longitude);<br>
+                    });<br>
+                </code>
+            </div>
+        </section>
+
+        <section>
+            <h3>Location Tracking</h3>
+            <p>
+                Another common way geolocation is used is through the <b>watchPosition</b> method, which tracks the user's location as they move. 
+                This is extremely useful for apps and websites that need real-time updates, like navigation tools when driving or even something like fitness trackers. 
+                For instance, these apps might use it to map your route and show how far you’ve gone, as well as estimate how long you you have left. 
+                In short, this feature helps you stay on track in terms of yours or others locations and adds live updates to your experiences. 
+            </p>
+            <p>This is a basic example of how you would use the method, which requests the user's location to track:</p>
+            <div class="example">
+                <code><br>
+                    const watchId = navigator.geolocation.watchPosition(function(position) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;const latitude = position.coords.latitude;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;const longitude = position.coords.longitude;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;console.log("Latitude:", latitude, "Longitude:", longitude);<br>
+                    });<br><br>
+                    <b>// to stop tracking you can use clearWatch(): navigator.geolocation.clearWatch(watchId);</b><br><br>
+                </code>
+            </div>
+        </section>
+
+        <section>
+            <h3>Location Management</h3>
+            <p>
+                Last, but definitely not least, developers can also use settings like cache control (represented by <b>maximumAge</b>) and timeouts (represented by <b>timeout</b>) to make geolocation work even better. 
+                This is because caching data stores your location, so apps and websites don’t need to ask for it repeatedly the next time you use them. 
+                Timeouts are useful for when you want to retrieve a location within a set amount of time, so website delays are avoided if the user is unresponsive for some reason. 
+                These settings make geolocation faster, smoother, and more reliable for consistent use.
+            </p>
+            <p>A basic example of the <b>cache method</b> it shown below, which stores the user's location for a certain amount of time, and requests a new location when the time runs out:</p>
+            <div class="example">
+                <code><br>
+                    function getLocation() {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;navigator.geolocation.getCurrentPosition(successCallback, errorCallback, { maximumAge: 600000 });<br>
+                    }<br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;function successCallback(position) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;const latitude = position.coords.latitude;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;const longitude = position.coords.longitude;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;console.log("Latitude:", latitude, "Longitude:", longitude);<br>
+                    }<br><br>
+                    <b>// if an error occurs</b><br>
+                    function errorCallback(error) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;console.error("Error:", error.message);<br>
+                    }<br><br>
+                    getLocation();<br><br>
+                </code>
+            </div>
+        </section>
+
+        <section>
+            <h3>Feedback & Error Handling</h3>
+            <p>A basic example of the <b>timeout method</b> is shown below, which displays the user's location if it is received within the time limit, or requests the location again if timed out;
+                this provides an excellent form of user feedback that also troubleshoots errors in the process:</p>
+            <div class="example">
+                <code><br>
+                    navigator.geolocation.getCurrentPosition(successCallback, errorCallback, { timeout: 10000 });<br><br>
+                    function successCallback(position) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;const latitude = position.coords.latitude;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;const longitude = position.coords.longitude;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;console.log("Latitude:", latitude, "Longitude:", longitude);<br>
+                    }<br><br>
+                    function errorCallback(error) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;console.error("Error:", error.message);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;if (error.code === error.TIMEOUT) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log("Location request timed out.");<br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// <b>request again</b><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;navigator.geolocation.getCurrentPosition(successCallback, errorCallback);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    }
+                </code>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
